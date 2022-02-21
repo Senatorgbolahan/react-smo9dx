@@ -1,11 +1,28 @@
-import React from "react";
-import "./style.css";
+import './style.css';
+import Form from './components/Form';
+import { useState } from 'react';
+import React from 'react';
 
-export default function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const handleAddClick = () => {
+    setCount((count) => count + 1);
+  };
+
+  const handleSubClick = () => {
+    setCount((prev) => prev - 1);
+  };
+
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+    <div className="App">
+      <Form
+        handleAddClick={handleAddClick}
+        count={count}
+        handleSubClick={handleSubClick}
+      />
     </div>
   );
-}
+};
+
+export default App;
